@@ -21,14 +21,16 @@ event.preventDefault();
 });
 
 
-       $(".shopping-item-toggle").on('click', function(event){
-            $(this).closest("span").toggleClass('shopping-item__checked')
+       $("body").on('click', ".shopping-item-toggle", function(event){
   
-// STUCK HERE NEED HELP UNDERSTANDING why can't I get closest to work? It should bubble up the DOM until it gets to the next <span>, 
-// and select that span for toggling // maybe there is a different way I should be targeting this???
-    
-       });
 
+let li = $(this).closest("li");
+   
+    let children = $(li).children();
+$(children[0]).toggleClass('shopping-item__checked');
+    
+   
+});
 
        $("ul").on('click', '.shopping-item-delete', function(event){
         $(this).closest("li").remove();
