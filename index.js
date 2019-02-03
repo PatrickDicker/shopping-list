@@ -1,5 +1,7 @@
 $(function() {
    
+//add new entry works fine
+
 $('form').submit(event => {
 event.preventDefault();
     const newEntry = $('input').val();
@@ -18,10 +20,20 @@ event.preventDefault();
 
 });
 
-const countElements = document.getElementsByTagName("UL")[0].childElementCount;
 
-   for (i = 1; i <= countElements; i++){
-};
+       $(".shopping-item-toggle").on('click', function(event){
+            $(this).closest("span").toggleClass('shopping-item__checked')
+  
+// STUCK HERE NEED HELP UNDERSTANDING why can't I get closest to work? It should bubble up the DOM until it gets to the next <span>, 
+// and select that span for toggling // maybe there is a different way I should be targeting this???
+    
+       });
 
+
+       $("ul").on('click', '.shopping-item-delete', function(event){
+        $(this).closest("li").remove();
+            });
+
+// delete works fine
 
 });
